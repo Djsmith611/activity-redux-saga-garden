@@ -4,15 +4,15 @@ The saga continues with an epic garden of epic-ness!
 
 ## Create Database and Table
 
-Create a new database called `garden` and run the SQL in the `database.sql` file.
+[x]Create a new database called `garden` and run the SQL in the `database.sql` file.
 
 ## Development Setup Instructions
 
-* Run `npm install`
-* Start postgres if not running already
-* Run `npm run server` to start the server
-* Run `npm run client` to start the client
-* Navigate to `localhost:5173`
+* [x] Run `npm install`
+* [x] Start postgres if not running already
+* [x] Run `npm run server` to start the server
+* [x] Run `npm run client` to start the client
+* [x]Navigate to `localhost:5173`
 
 ## Lay of the Land
 
@@ -24,8 +24,8 @@ Create a new database called `garden` and run the SQL in the `database.sql` file
 
 Currently, the app is rendering and adding stuff to the DOM, but this is **100% client-side** code. Your job is going to be to convert this app into a *full stack app that uses React, Redux, and Redux-Saga*. Here are the steps to do this:
 
-1. Add the `redux-logger` middleware to the project.
-2. Add `redux-saga` to the project. The `GET /api/plants` route is already written to send an array of plant objects as its response. Obtain and render that array in the `PlantList` component when it loads. (You'll need to make a Saga function in `store.js` whose job is to get the data from the server, then `put` it into the `plantList` reducer.)
+[x]1. Add the `redux-logger` middleware to the project.
+[x]2. Add `redux-saga` to the project. The `GET /api/plants` route is already written to send an array of plant objects as its response. Obtain and render that array in the `PlantList` component when it loads. (You'll need to make a Saga function in `store.js` whose job is to get the data from the server, then `put` it into the `plantList` reducer.)
 3. Add all of the plant fields to the `PlantForm` to allow adding a new plant to the database. The server-side code for this already exists in the `POST /api/plants` route.
 4. Add a delete button for each plant to allow it to be removed from the database. The `DELETE /api/plants/:id` route is already written for this.
 
