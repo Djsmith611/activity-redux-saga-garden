@@ -5,6 +5,10 @@ function PlantList() {
   const dispatch = useDispatch();
   const plantList = useSelector((store) => store.plantList);
 
+  const handleDelete = (id) => {
+    dispatch({ type: "DELETE_PLANT", payload:id })
+  }
+
   useEffect(() => {
     dispatch({ type: "FETCH_PLANTS" });
   }, [dispatch]);
@@ -38,6 +42,7 @@ function PlantList() {
             <p>Family: {plant.family}</p>
             <p>SubFamily: {plant.subfamily}</p>
             <p>Genus: {plant.genus}</p>
+            <button onClick={() => handleDelete(plant.id)} >DELETE</button>
         </div>
       ))}
     </div>

@@ -27,7 +27,7 @@ Currently, the app is rendering and adding stuff to the DOM, but this is **100% 
 [x]1. Add the `redux-logger` middleware to the project.
 [x]2. Add `redux-saga` to the project. The `GET /api/plants` route is already written to send an array of plant objects as its response. Obtain and render that array in the `PlantList` component when it loads. (You'll need to make a Saga function in `store.js` whose job is to get the data from the server, then `put` it into the `plantList` reducer.)
 [x]3. Add all of the plant fields to the `PlantForm` to allow adding a new plant to the database. The server-side code for this already exists in the `POST /api/plants` route.
-4. Add a delete button for each plant to allow it to be removed from the database. The `DELETE /api/plants/:id` route is already written for this.
+[x]4. Add a delete button for each plant to allow it to be removed from the database. The `DELETE /api/plants/:id` route is already written for this.
 
 ## Stretch Goals
 

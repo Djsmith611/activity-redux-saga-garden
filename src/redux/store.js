@@ -27,11 +27,23 @@ function* addPlant(action) {
     console.error("Something went wrong", err);
   }
 }
+// DELETE PLANTS
+function* deletePlant(action) {
+  let id = action.payload;
+  try {
+    yield axios.delete(`/api/plants/${id}`);
+    yield put({type: "FETCH_PLANTS"});
+  }
+  catch (err) {
+    console.error("Something went wrong",err);
+  }
+}
 
 // ROOT SAGA
 function* rootSaga() {
   yield takeEvery("FETCH_PLANTS", fetchPlants);
   yield takeEvery("ADD_PLANT", addPlant);
+  yield takeEvery("DELETE_PLANT", deletePlant);
 };
 
 // PLANT LIST REDUCER
