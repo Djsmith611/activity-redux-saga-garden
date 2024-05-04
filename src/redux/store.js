@@ -18,7 +18,7 @@ function* fetchPlants() {
 };
 
 // POST PLANTS
-function* addPlant() {
+function* addPlant(action) {
   try {
     yield axios.post("/api/plants", action.payload);
     yield put({ type: "FETCH_PLANTS" });
@@ -38,7 +38,7 @@ function* rootSaga() {
 const plantList = (state = [], action) => {
   switch (action.type) {
     case "SET_PLANT_LIST":
-      return [...state, action.payload];
+      return action.payload;
     default:
       return state;
   }

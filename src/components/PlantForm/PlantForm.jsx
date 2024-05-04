@@ -42,6 +42,7 @@ export default function PlantForm() {
 
   return (
     <div>
+      <p>{JSON.stringify(newPlant)}</p>
       <form
         onSubmit={(e) => addNewPlant(e)}
         style={{

@@ -1,22 +1,47 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector} from 'react-redux';
-
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function PlantList() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const plantList = useSelector((store) => store.plantList);
 
-    const reduxState = useSelector(store => store);
+  useEffect(() => {
+    dispatch({ type: "FETCH_PLANTS" });
+  }, [dispatch]);
 
-    useEffect(() => {
-        // dispatch an action to request the plantList from the API
-    }, []); 
-
-    return (
-        <div>
-            <h3>This is the plant list</h3>
-            <pre>{JSON.stringify(reduxState)}</pre>
+  return (
+    <div style={{
+        display:"flex",
+        justifyContent:"space-between",
+        margin:"auto",
+        alignContent:"center",
+        marginTop:"10px",
+        width:"50%",
+    }}>
+      {plantList.map((plant) => (
+        <div key={plant.id}
+        style={{
+            display:"flex",
+            flexDirection:"column",
+            color:"white",
+            backgroundColor:"black",
+            width:"fit-content",
+            borderRadius:"10px",
+            gap:0,
+            textAlign:"left",
+            padding:"10px",
+        }}>
+            <h2 style={{textAlign:"center"}}>{plant.name}</h2>
+            <p>Kingdom: {plant.kingdom}</p>
+            <p>Clade: {plant.clade}</p>
+            <p>Order: {plant.order}</p>
+            <p>Family: {plant.family}</p>
+            <p>SubFamily: {plant.subfamily}</p>
+            <p>Genus: {plant.genus}</p>
         </div>
-    );
+      ))}
+    </div>
+  );
 }
 
 export default PlantList;
