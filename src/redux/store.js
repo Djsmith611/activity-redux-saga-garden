@@ -7,7 +7,7 @@ import axios from "axios";
 // SAGA MIDDLEWARE
 const sagaMiddleware = createSagaMiddleware();
 
-// GET PLANTS GENERATOR FUNC
+// GET PLANTS
 function* fetchPlants() {
   try {
     const plants = yield axios.get("/api/plants");
@@ -17,9 +17,21 @@ function* fetchPlants() {
   }
 };
 
-// ROOT SAGA GENERATOR FUNC
+// POST PLANTS
+function* addPlant() {
+  try {
+    yield axios.post("/api/plants", action.payload);
+    yield put({ type: "FETCH_PLANTS" });
+  }
+  catch (err) {
+    console.error("Something went wrong", err);
+  }
+}
+
+// ROOT SAGA
 function* rootSaga() {
   yield takeEvery("FETCH_PLANTS", fetchPlants);
+  yield takeEvery("ADD_PLANT", addPlant);
 };
 
 // PLANT LIST REDUCER
